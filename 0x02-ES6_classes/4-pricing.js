@@ -1,41 +1,38 @@
-import Currency from './3-currency'
+import Currency from './3-currency';
 
-export default class Pricing{
+export default class Pricing {
+  constructor(amount, currency) {
+    this.amount = amount;
+    this.currency = currency;
+  }
 
-    constructor(amount, currency){
-        this.amount = amount  
-        this.currency = currency 
-    }
+  // Getter and Setter for 'amount'
+  get amount() {
+    return this._amount;
+  }
 
-    // Getter and Setter for 'amount'
-    get amount(){
-        return this._amount
-    } 
+  set amount(value) {
+    if (typeof value !== 'number') throw TypeError('Amount must be a number');
+    this._amount = value;
+  }
 
-    set amount(value){
-        if (typeof value !== 'number')
-            throw TypeError('Amount must be a number')
-        this._amount = value
-    }
+  // Getter and Setter for 'currency'
+  get currency() {
+    return this._currency;
+  }
 
-    // Getter and Setter for 'currency'
-    get currency(){
-        return this._currency
-    } 
+  set currency(value) {
+    if (!value.instanceof(Currency)) throw TypeError('Amount must be a number');
+    this._currency = value;
+  }
 
-    set currency(value){
-        if (!value instanceof Currency)
-            throw TypeError('Amount must be a number')
-        this._currency = value
-    }
+  // Display
+  displayFullPrice() {
+    return `${this.amount} ${this.currency.displayFullCurrency()}`;
+  }
 
-    // Display
-    displayFullPrice(){
-        return `${this.amount} ${this.currency.displayFullCurrency()}`
-    }
-
-    // static method
-    static convertPrice(amount, conversionRate){
-        return amount * conversionRate
-    }
+  // static method
+  static convertPrice(amount, conversionRate) {
+    return amount * conversionRate;
+  }
 }
