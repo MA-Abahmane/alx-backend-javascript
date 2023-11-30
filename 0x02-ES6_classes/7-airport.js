@@ -6,6 +6,6 @@ export default class Airport {
 
   toString() {
     // String conversion
-    return `[Object ${this._code}]`;
+    return `[object ${this._code}]`;
   }
 }
