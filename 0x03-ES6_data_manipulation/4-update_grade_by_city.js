@@ -10,7 +10,7 @@ export default function updateStudentGradeByCity(listStudents, city, newGrades) 
     .filter((student) => student.location === city)
     .map((student) => ({
       ...student,
-      grades:
+      grade:
         (newGrades.find((grade) => grade.studentId === student.id) || {}).grade || 'N/A',
     }));
 }
