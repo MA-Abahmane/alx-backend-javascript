@@ -1,9 +1,7 @@
-
-
 export default function getStudentsByLocation(listStudents, city) {
-    let cmnCity = []
+  let cmnCity = [];
 
-    cmnCity = listStudents.filter(student => student.location === city)
+  cmnCity = listStudents.filter((student) => student.location === city);
 
-    return cmnCity
+  return cmnCity;
 }
