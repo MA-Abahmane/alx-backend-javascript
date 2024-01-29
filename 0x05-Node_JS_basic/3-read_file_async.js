@@ -23,6 +23,7 @@ function countStudents(path) {
       if (error) {
         reject(new Error('Cannot load the database'));
       } else {
+        var result = []
         // Split the CSV data into rows
         const rows = data.split('\n').filter((row) => row.trim() !== '');
 
@@ -32,6 +33,8 @@ function countStudents(path) {
         // number of students
         const numberOfStudents = rows.length;
         console.log(`Number of students: ${numberOfStudents}`);
+        
+        result.push(`Number of students: ${numberOfStudents}`)
 
         // Count students in each field
         const fields = {};
@@ -48,10 +51,13 @@ function countStudents(path) {
         for (const field in fields) {
           const count = fields[field].length;
           const list = fields[field].join(', ');
-          console.log(`Number of students in ${field}: ${count}. List: ${list}`);
+          message = `Number of students in ${field}: ${count}. List: ${list}`
+          console.log(message);
+    
+          result.push(message)
         }
 
-        resolve();
+        resolve(result.join('\n'));
       }
     });
   });
