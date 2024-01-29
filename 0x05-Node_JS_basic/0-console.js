@@ -1,8 +1,8 @@
 // a function named displayMessage that
 // prints in STDOUT the string argument.
 
-function displayMessage() {
-  console.log('Hello NodeJS!');
+function displayMessage(message) {
+  console.log(message);
 }
 
 module.exports = displayMessage;

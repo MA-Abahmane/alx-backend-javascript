@@ -13,30 +13,29 @@
  */
 
 const exp = require('express');
-const countStudents = require('./3-read_file_async')
+const countStudents = require('./3-read_file_async');
 
 const app = exp();
 const port = 1245;
-const file = 'database.csv'
+const file = 'database.csv';
 
 // Start application server
 app.get('/', (req, res) => {
-  res.type('text/plain')
+  res.type('text/plain');
   res.send('Hello Holberton School!');
 });
 
 app.get('/students', (req, res) => {
-    res.type('text/plain')
-    countStudents(file)
+  res.type('text/plain');
+  countStudents(file)
     .then((data) => {
-        res.send(`This is the list of our students\n${data}`)
+      res.send(`This is the list of our students\n${data}`);
     })
     .catch((error) => {
-        res.send(error)
-    })
-})
+      res.send(error);
+    });
+});
 
 app.listen(port);
-
 
 module.exports = app;

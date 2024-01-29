@@ -11,11 +11,15 @@
 
 console.log('Welcome to Holberton School, what is your name?');
 
-// Read user input from standard input (stdin)
-process.stdin.on('data', (input) => {
-  const name = input.toString().trim();
-  if (name) console.log(`Your name is: ${name}`);
+// Encoding set to utf-8
+process.stdin.setEncoding('UTF8');
 
-  console.log('This important software is now closing');
-  process.exit();
+// Read user input from standard input (stdin)
+process.stdin.on('readable', () => {
+  const name = process.stdin.read();
+  if (name) process.stdout.write(`Your name is: ${name}`);
+});
+
+process.stdin.on('end', () => {
+  process.stdout.write('This important software is now closing\n');
 });
