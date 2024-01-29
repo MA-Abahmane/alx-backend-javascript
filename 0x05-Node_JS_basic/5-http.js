@@ -17,7 +17,7 @@ const countStudents = require('./3-read_file_async');
 
 const app = exp();
 const port = 1245;
-const file = 'database.csv';
+const file = process.argv.slice(2)[0];
 
 // Start application server
 app.get('/', (req, res) => {
@@ -29,10 +29,10 @@ app.get('/students', (req, res) => {
   res.type('text/plain');
   countStudents(file)
     .then((data) => {
-      res.send(`This is the list of our students\n${data}`);
+      res.end(`This is the list of our students\n${data}`);
     })
     .catch((error) => {
-      res.send(error);
+      res.end(error.message);
     });
 });
 
