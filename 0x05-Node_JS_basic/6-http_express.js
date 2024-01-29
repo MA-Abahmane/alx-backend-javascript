@@ -7,16 +7,16 @@
  *  Displays Hello Holberton School! in the page body for the endpoint /
  */
 
-const exp = require('express')
+const exp = require('express');
 
-const app = exp()
-const port = 1245
+const app = exp();
+const port = 1245;
 
 // Start application server
 app.get('/', (req, res) => {
-  res.send('Hello Holberton School!')
-})
+  res.send('Hello Holberton School!');
+});
 
-app.listen(port)
+app.listen(port);
 
-module.exports = app
+module.exports = app;
