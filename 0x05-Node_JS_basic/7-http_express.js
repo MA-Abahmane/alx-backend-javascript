@@ -14,25 +14,25 @@
 const exp = require('express');
 const countStudents = require('./3-read_file_async');
 
+const args = process.argv.slice(2);
+const DATABASE = args[0]
+
 const app = exp();
 const port = 1245;
-const file = process.argv.slice(2)[0];
 
 // Start application server
 app.get('/', (req, res) => {
-  res.type('text/plain');
   res.send('Hello Holberton School!');
 });
 
-app.get('/students', (req, res) => {
-  res.type('text/plain');
-  countStudents(file)
-    .then((data) => {
-      res.end(`This is the list of our students\n${data}`);
-    })
-    .catch((error) => {
-      res.end(error.message);
-    });
+app.get('/students', async (req, res) => {
+    const msg = 'This is the list of our students\n';
+    try {
+      const students = await countStudents(DATABASE);
+      res.send(`${msg}${students}`);
+    } catch (error) {
+      res.send(`${msg}${error.message}`);
+    }
 });
 
 app.listen(port);
