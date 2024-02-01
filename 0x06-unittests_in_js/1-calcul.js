@@ -1,15 +1,10 @@
 
-// The function rounds a and b and return the sum of it
-function calculate(type, a, b) {
-    // Ensure a and b are numbers
-    if (typeof a !== 'number' || typeof b !== 'number') {
-      return 'Error: Both a and b must be numbers';
-    }
-  
-    // Round the numbers
+// An upgrade of the function created in the previous task
+function calculateNumber(type, a, b) {
+
     a = Math.round(a);
     b = Math.round(b);
-  
+
     // Perform the specified operation
     switch (type) {
       case 'SUM':
@@ -18,15 +13,14 @@ function calculate(type, a, b) {
         return a - b;
       case 'DIVIDE':
         // Check if b is rounded to 0 to avoid division by zero
-        if (Math.round(b) === 0) {
-          return 'Error: Division by zero';
+        if (b === 0) {
+          return 'Error';
         }
         return a / b;
       default:
-        return 'Error: Invalid operation type';
+        return 'Error';
     }
-  }
-  
-  
-  module.exports = calculate;
- 
+}
+
+
+module.exports = calculateNumber;
