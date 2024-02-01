@@ -18,7 +18,7 @@ describe('Test sendPaymentRequestToApi with Hooks', () => {
 
     it('should log the correct message to the console for totalAmount=100, totalShipping=20', () => {
         sendPaymentRequestToApi(100, 20)
-
+        // Verify that the console is logging the string 'The total is: 120' & only called once
         assert(consoleLogNinja.calledOnceWithExactly('The total is: 120'))
     })
 
@@ -28,4 +28,3 @@ describe('Test sendPaymentRequestToApi with Hooks', () => {
         assert(consoleLogNinja.calledOnceWithExactly('The total is: 20'))
     })
 })
-;;.
