@@ -9,7 +9,7 @@
     "mocha": "^10.2.0"
   },
   "scripts": {
-    "test": "alx-backend-javascript\\0x06-unittests_in_js\\node_modules\\chai\\chai.js"
+    "test": "./node_modules/chai/chai.js"
   },
   "author": "",
   "license": "ISC"
