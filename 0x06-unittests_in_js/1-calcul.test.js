@@ -30,7 +30,7 @@ describe('Test calculateNumber V2', () => {
     })
 
     it("float values passed ('SUBTRACT', 0, 0) => 0", () => {
-        assert.strictEqual(calculateNumber('SUBTRACT', 0, 0), 0)
+        assert.strictEqual(calculateNumber('SUBTRACT', 0, 0), 1)
     })
 
 })
