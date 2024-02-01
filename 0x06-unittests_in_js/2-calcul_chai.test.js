@@ -19,7 +19,7 @@ describe('Test calculateNumber V2 with chai', () => {
 
   it("Test DIVIDE operation", () => {
     expect(calculateNumber('DIVIDE', 5, 2)).to.equal(2.5);
-    expect(calculateNumber('DIVIDE', 9, 3)).to.(3);
+    expect(calculateNumber('DIVIDE', 9, 3)).to.equal(3);
     expect(calculateNumber('DIVIDE', -6, 2)).to.equal(-3);
   });
 
