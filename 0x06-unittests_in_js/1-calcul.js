@@ -18,7 +18,7 @@ function calculateNumber(type, a, b) {
         }
         return a / b;
       default:
-        return 'Error';
+        return 0;
     }
 }
 
